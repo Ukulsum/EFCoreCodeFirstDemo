@@ -13,10 +13,10 @@ namespace EFCoreCodeFirstDemo.Entities
         // Constructor that accept DbContextOptions<EFCoreDbContext> as a parameter.
         // The options parameter contains the settings required by EF Core to configure the DbContext,
         // Such as the connection string and provider.
-        public EFCoreDbContext(DbContextOptions<EFCoreDbContext> options) : base(options) 
-        {
+        //public EFCoreDbContext(DbContextOptions<EFCoreDbContext> options) : base(options) 
+        //{
             
-        }
+        //}
 
 
         // OnConfiguring is an overirde method that allows configuring the DbContext options,
@@ -25,7 +25,11 @@ namespace EFCoreCodeFirstDemo.Entities
         {
             // Configure the database provider and connection string.
             // UseSqlServer method configures the DbContext to use SQL Server as the database provider.
+            // The provided connection string specifies the server, database name, and credentials.
+            // Replace "Server=YourServerName;Database=YourDatabaseName;User Id=YourUsername;Password=YourPassword;"
+            // with your actual SQL Server details.
 
+            optionsBuilder.UseSqlServer("Server=DESKTOP-M6B26UP\\SQLEXPRESS;Database=EFData;Trusted_Connection=True;TrustServerCertificate=true;");
         }
 
 
@@ -41,3 +45,6 @@ namespace EFCoreCodeFirstDemo.Entities
         public DbSet<Branch> Branches { get; set; }
     }
 }
+
+
+
